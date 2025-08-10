@@ -15,3 +15,6 @@ data = fetch_california_housing(as_frame=True)
 df = data.frame
 X = df.drop(columns=['MedHouseVal'])
 y = df['MedHouseVal']
+
+# quick EDA
+print(df.describe().T[['mean', 'std', 'min', 'max']])
