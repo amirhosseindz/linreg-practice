@@ -30,3 +30,12 @@ pipe = Pipeline([
 ])
 pipe.fit(X_train, y_train)
 y_pred = pipe.predict(X_test)
+
+# evaluate model
+def print_metrics(y_true, y_pred):
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    print(f'MAE: {mae:.4f}, RMSE: {rmse:.4f}, R2: {r2:.4f}')
+print_metrics(y_test, y_pred)
