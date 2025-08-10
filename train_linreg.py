@@ -22,3 +22,11 @@ print(df.describe().T[['mean', 'std', 'min', 'max']])
 # train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     test_size=0.2, random_state=42)
+
+# define pipelines
+pipe = Pipeline([
+    ('scaler', StandardScaler()),
+    ('lr', LinearRegression())
+])
+pipe.fit(X_train, y_train)
+y_pred = pipe.predict(X_test)
